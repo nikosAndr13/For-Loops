@@ -5,8 +5,15 @@
 // separateNamesWithAFromRest(["jon", "alice", "andrew", "mark", "jimmy"]) -> [["alice", "andrew", "mark"], ["jon", "jimmy"]]
 
 export function separateNamesWithAFromRest(array) {
-  // Your code goes here...
+  const hasA = [];
+  const notA = [];
 
+  for (let i = 0; i < array.length; i++) {
+    if (array[i].includes('a')) {
+      hasA.push(array[i])
+    } else {notA.push(array[i])}
+  }
+  return [hasA, notA];
 }
 
 
