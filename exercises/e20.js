@@ -9,9 +9,19 @@ export function separateNamesWithAFromRest(array) {
   const notA = [];
 
   for (let i = 0; i < array.length; i++) {
-    if (array[i].includes('a')) {
+    let name = array[i].toLowerCase();
+    let foundA = false;
+    for (let j = 0; j < name.length; j++) {
+      if (name[j] === 'a') {
+        foundA = true;
+        break;
+      }
+    }
+    if (foundA) {
       hasA.push(array[i])
-    } else {notA.push(array[i])}
+    } else {
+      notA.push(array[i])
+    }
   }
   return [hasA, notA];
 }
