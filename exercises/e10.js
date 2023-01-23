@@ -8,7 +8,7 @@ export function getClientsWithLetterInName(array, letter) {
   for (let person of array) {
     let name = person.name.toLowerCase();
     for (let i = 0; i < name.length; i++) {
-      if (name[i] === letter) {
+      if (name[i] === letter.toLowerCase()) {
         arr.push(person.name);
         break;
       }

@@ -6,13 +6,15 @@
 
 export function getClientWithGreatestBalance(array) {
   let arr = [];
-  array.sort((a,b) => a.balance - b.balance)
-  const maxBalance = array[array.length - 1].balance
+  let maxPerson;
   for (let person of array) {
-    if (person.balance === maxBalance) {
-      arr.push(person)
+    if (person.balance > 0) {
+        if (!maxPerson || person.balance > maxPerson.balance) {
+            maxPerson = person;
+        }
     }
   }
+  arr.push(maxPerson)
   return arr;
 }
 

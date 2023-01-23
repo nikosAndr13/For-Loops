@@ -5,13 +5,15 @@
 
 export function getClientWithLeastBalance(array) {
   const arr = [];
-  array.sort((a,b) => a.balance + b.balance)
-  const minBalance = array[array.length - 1].balance
+  let minPerson;
   for (let person of array) {
-    if (0 < person.balance && person.balance === minBalance) {
-      arr.push(person)
+    if (person.balance > 0) {
+        if (!minPerson || person.balance < minPerson.balance) {
+            minPerson = person;
+        }
     }
   }
+  arr.push(minPerson)
   return arr;
 }
 
